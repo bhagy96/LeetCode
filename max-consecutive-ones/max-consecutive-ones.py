@@ -11,7 +11,7 @@ class Solution:
                 cur_c = 0
                 
         if max_c < cur_c:
-            max_c = cur_c
+            return cur_c
         return max_c
             
                 
