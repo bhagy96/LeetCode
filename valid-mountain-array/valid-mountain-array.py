@@ -7,7 +7,7 @@ class Solution:
         while j!=(l):
             if arr[i]==arr[j]:
                 return False
-            if flag==0 and arr[i]>arr[j]:
+            if arr[i]>arr[j]:
                 flag = 1
             elif flag==1 and arr[i]<arr[j]:
                 return False
