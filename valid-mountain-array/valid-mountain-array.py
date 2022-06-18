@@ -1,7 +1,7 @@
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:
         l = len(arr)
-        if l<3:
+        if l<3 or arr[0]>arr[1]:
             return False
         flag,i,j = -1,0,1
         while j!=(l):
