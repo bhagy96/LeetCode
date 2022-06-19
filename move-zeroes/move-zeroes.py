@@ -4,6 +4,10 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         c = nums.count(0)
+        c=0
+        for n in nums:
+            if n==0:
+                c+=1
         # L = len(nums)
         for _ in range(c):
             nums.remove(0)
