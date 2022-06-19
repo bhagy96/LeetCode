@@ -3,7 +3,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        c = nums.count(0)
+        # c = nums.count(0)
         c=0
         for n in nums:
             if n==0:
