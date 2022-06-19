@@ -3,6 +3,24 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        i = 0
+        for j in range(len(nums)):
+            if nums[j] != 0:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+                
+#         L = len(nums)
+#         i=0
+#         c=0
+#         while (i+c)<L:
+#             if nums[i]==0:
+#                 nums.pop(i)                
+#                 c+=1
+#             else:
+#                 i+=1
+#         nums += c*[0]
+#         return nums
+    
         # c = nums.count(0)
         # c=0
         # for n in nums:
@@ -22,21 +40,7 @@ class Solution:
         #     nums.insert(L-1,0)
         # return nums
         
-        L = len(nums)
-        i=0
-        c=0
-        # for i in range(len(nums)):
-        while (i+c)<L:
-            # print("i",i)
-            if nums[i]==0:
-                nums.pop(i)                
-                c+=1
-            else:
-                i+=1
-            # print(nums)
-            # print("i+c",i+c,L)
-        nums += c*[0]
-        return nums
+        
     
         # L = len(nums)
         # for i in range(L):
