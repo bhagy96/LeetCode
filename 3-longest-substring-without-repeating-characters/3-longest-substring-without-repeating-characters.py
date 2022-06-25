@@ -8,9 +8,7 @@ class Solution:
                 if tempc>maxc:
                     maxc = tempc 
                 temps = temps[temps.index(c)+1:] +c
-                # print(temps)
-                tempc = len(temps)
-                # temps = c                
+                tempc = len(temps)         
             else:
                 tempc+=1
                 temps += c
