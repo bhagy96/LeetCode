@@ -14,9 +14,7 @@ class Solution:
         while fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next
-        
-        print(slow.val, fast.val)
-        
+                
         prev, curr = None, slow.next
         while curr:
             temp = curr.next
@@ -26,11 +24,19 @@ class Solution:
         slow.next  = None
         
         head1, head2 = head, prev
+        # while head2:
+        #     temp = head1.next
+        #     head1.next = head2
+        #     head1 = head2
+        #     head2 = temp
+            
         while head2:
-            temp = head1.next
+            temp1 = head1.next
+            temp2 = head2.next
             head1.next = head2
-            head1 = head2
-            head2 = temp
+            head2.next = temp1
+            head1 = temp1
+            head2 = temp2
             
             
             
