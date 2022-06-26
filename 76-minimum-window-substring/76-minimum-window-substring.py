@@ -5,6 +5,7 @@ class Solution:
         end = 0
         min_window = ""
         target_len = len(t)
+        
         for end in range(len(s)):
             
 			# If we see a target letter, decrease the total target letter count
@@ -12,7 +13,6 @@ class Solution:
             if target_dict[s[end]] > 0:
                 # print("in decrease len", target_len)
                 target_len -= 1
-                
             target_dict[s[end]] -= 1
             # print(target_dict, target_len, s[end], end)
             while target_len==0:
@@ -22,13 +22,15 @@ class Solution:
 					# Note the new minimum window
                     min_window = s[start : end + 1]
                     # print(min_window)
-                    
-				# Increase the letter count of the current letter
+                
                 target_dict[s[start]] += 1
+                
+                # above is to reinforce the below if condition.                
+                # we increase the count because we have seen the variable,
+                # now if its>0 then we know it'll appear in future as well
+                # This is the reason we break out of the loop so that we know we are getting one more later
                 # print('-----',target_dict)
                 
-				# If all target letters have been seen and now, a target letter is seen with count > 0
-				# Increase the target length to be found. This will break out of the loop
                 if target_dict[s[start]] > 0:
                     # print("inhere")
                     target_len += 1
