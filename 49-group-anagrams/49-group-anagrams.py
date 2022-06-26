@@ -8,6 +8,4 @@ class Solution:
                 dic[ss].append(s)
             else:
                 dic[ss] = [s]
-        for v in dic.values():
-            re.append(v)
-        return re
+        return dic.values()
