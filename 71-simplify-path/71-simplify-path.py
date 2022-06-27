@@ -1,17 +1,25 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
+        # perfect
+#         stack = []
+#         for elem in path.split("/"):
+#             if stack and elem == "..":
+#                 stack.pop()
+#             elif elem not in [".", "", ".."]:
+#                 stack.append(elem)
+                
+#         return "/" + "/".join(stack)
+    
+    # my solution
         i=1
         ret = ''
         direc = []
         path += '/'
         while i<len(path):
             temps = ''
-            # print(i,path[i])
-            while path[i]!='/':
-                
+            while path[i]!='/':                
                 temps += path[i]
                 i+=1
-            # print(temps)
             if direc and temps=='..':
                 direc.pop()
             elif temps and temps!='.' and temps!='..':
@@ -20,9 +28,3 @@ class Solution:
         if not direc:
             return '/'
         return "".join(direc)
-        
-        # if not ret:
-        #     return '/'
-        # if ret[-1]=='/':
-        #     return '/'+ret[:-1]
-        # return '/'+ret
