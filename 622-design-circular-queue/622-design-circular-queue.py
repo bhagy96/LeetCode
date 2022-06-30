@@ -23,15 +23,10 @@ class MyCircularQueue:
             return True
 
     def Front(self) -> int:
-        # if self.lst[0] is not None:
         return self.lst[0]
-        # return None
 
     def Rear(self) -> int:
-        # print('rear',self.lst,self.top)
-        # if self.lst[self.top]:
-        return self.lst[self.top] 
-        # return None
+        return self.lst[self.top]
 
     def isEmpty(self) -> bool:
         if self.lst[0] == -1:
