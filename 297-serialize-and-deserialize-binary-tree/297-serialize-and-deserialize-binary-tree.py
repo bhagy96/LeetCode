@@ -8,30 +8,38 @@
 class Codec:
     
     def serialize(self, root):
-        if not root: return ''
-        result = []
-        queue = deque([root])
+        def FindNode(node):
+            if node :
+                ret.append(str(node.val))
+                FindNode(node.left)
+                FindNode(node.right)
+            else :
+                ret.append('#')
+        ret = []
+        FindNode(root)
+        #print(ret)
+        return ' '.join(ret)
         
-        while queue:
-            node = queue.popleft()
-            
-            if node:
-                result.append(str(node.val))
-                queue.append(node.left)
-                queue.append(node.right)
-            else:
-                result.append("null")
-                
-        while result[-1] == 'null':
-            result.pop()
-        # print(result)
-            
-        return ','.join(result)
         
 
     def deserialize(self, data):
-        # print('here' , data.split())
-        return TreeNode(data.split()[0]) if data else None
+        
+        def ComposeNode():
+            val = next(vals)
+            if val == '#':
+                return None
+            else :
+                node = TreeNode(int(val))
+                node.left = ComposeNode()
+                node.right = ComposeNode()
+                return node
+        vals = iter(data.split())
+        return ComposeNode()
+    
+    
+    
+    
+    # Slow solution
     
 #     def preorder(self,node,pre_str):
 #         if node:
@@ -67,11 +75,9 @@ class Codec:
 #         :type data: str
 #         :rtype: TreeNode
 #         """
-#         print(data)
 #         if not data: return None
 #         preorder = [x for x in data.split(',')] 
 #         return self.build(preorder)
-#         # return TreeNode(data.split()[0]) if data else None
         
         
         
