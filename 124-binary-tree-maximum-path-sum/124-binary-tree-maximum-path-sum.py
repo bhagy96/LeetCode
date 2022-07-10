@@ -6,6 +6,12 @@
 #         self.right = right
 class Solution:
     
+    # You just mave to check these 4 cases:
+    # 1. Node only 
+    # 2. Max path through Left Child + Node 
+    # 3. Max path through Right Child + Node 
+    # 4. Max path through Left Child + Node + Max path through Right Child
+    
     def dfs(self,node):
         if node:
             left_val = self.dfs(node.left)
