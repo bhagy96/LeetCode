@@ -42,7 +42,7 @@ class Codec:
         :rtype: TreeNode
         """
         if not data: return None
-        preorder = [str(x) for x in data.split(',')] 
+        preorder = [x for x in data.split(',')] 
         return self.build(preorder)
         
         
