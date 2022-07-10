@@ -7,39 +7,69 @@
 
 class Codec:
     
+    
+    # Iterative, Fastest but cant understand how
+    
     def serialize(self, root):
-        def FindNode(node):
-            if node :
-                ret.append(str(node.val))
-                FindNode(node.left)
-                FindNode(node.right)
-            else :
-                ret.append('#')
-        ret = []
-        FindNode(root)
-        #print(ret)
-        return ' '.join(ret)
+        if not root: return ''
+        result = []
+        queue = deque([root])
         
+        while queue:
+            node = queue.popleft()
+            
+            if node:
+                result.append(str(node.val))
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                result.append("null")
+                
+        while result[-1] == 'null':
+            result.pop()
+            
+        return ','.join(result)
         
 
     def deserialize(self, data):
+        return TreeNode(data.split()[0]) if data else None
+    
+    
+    #Recursive
+    
+    
+#     def serialize(self, root):
+#         def FindNode(node):
+#             if node :
+#                 ret.append(str(node.val))
+#                 FindNode(node.left)
+#                 FindNode(node.right)
+#             else :
+#                 ret.append('#')
+#         ret = []
+#         FindNode(root)
+#         return ' '.join(ret)
         
-        def ComposeNode():
-            val = next(vals)
-            if val == '#':
-                return None
-            else :
-                node = TreeNode(int(val))
-                node.left = ComposeNode()
-                node.right = ComposeNode()
-                return node
-        vals = iter(data.split())
-        return ComposeNode()
+        
+
+#     def deserialize(self, data):
+        
+#         def ComposeNode():
+#             val = next(vals)
+#             if val == '#':
+#                 return None
+#             else :
+#                 node = TreeNode(int(val))
+#                 node.left = ComposeNode()
+#                 node.right = ComposeNode()
+#                 return node
+#         vals = iter(data.split())
+#         return ComposeNode()
     
     
     
     
-    # Slow solution
+    # My Slow solution
     
 #     def preorder(self,node,pre_str):
 #         if node:
