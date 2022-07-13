@@ -17,9 +17,49 @@ class KthLargest:
             heapq.heappop(self.heap)
         
         return self.heap[0]
+
+
+# Without library but gets TLE
+    
+# class KthLargest:
+    
+#     def min_heapify(self, n, i):
+        
+#         largest_pos = i
+#         left_pos = 2*i +1
+#         right_pos = 2*i +2
+
+#         if left_pos<n and self.heap[largest_pos]>self.heap[left_pos]: 
+#             largest_pos = left_pos
+#         if right_pos<n and self.heap[largest_pos]>self.heap[right_pos]:
+#             largest_pos = right_pos
+#         if largest_pos!=i:
+#             self.heap[i], self.heap[largest_pos] = self.heap[largest_pos], self.heap[i]
+#             self.min_heapify(n, largest_pos)  
+            
+#     def heapi(self):
+#         n = len(self.heap)
+#         for i in range(n//2 - 1, -1,-1):
+#             self.min_heapify(n, i)        
     
 
+#     def __init__(self, k: int, nums: List[int]):
+#         self.k = k
+#         self.heap = nums
+#         self.heapi()
         
+#         while len(self.heap) > self.k:
+#             self.heap.pop(0)
+
+#     def add(self, val: int) -> int:
+#         # return
+#         self.heap.append(val)
+#         self.heapi()
+#         if len(self.heap) > self.k:
+#             self.heap.pop(0)
+#         self.heapi()
+        
+#         return self.heap[0] 
 
 
 # Your KthLargest object will be instantiated and called as such:
