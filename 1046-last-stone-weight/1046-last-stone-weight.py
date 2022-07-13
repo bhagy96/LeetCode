@@ -16,19 +16,3 @@ class Solution:
                 return -1*max_heap[0]
             return max_heap[0]
         return 0
-            
-        
-        
-        
-        
-        
-        # stones = sorted(stones)
-        # while len(stones)>1:
-        #     if stones[-1]==stones[-2]:
-        #         stones.pop()
-        #         stones.pop()
-        #     else:
-        #         stones[-2] = stones[-1] - stones[-2]
-        #         stones.pop()
-        # 
-            
