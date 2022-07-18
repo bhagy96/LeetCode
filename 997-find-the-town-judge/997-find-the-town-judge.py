@@ -1,6 +1,7 @@
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
         if n==1 and not trust: return 1
+        if len(trust)<n-1: return -1
         d = {}
         f = []
         for i in range(len(trust)):
