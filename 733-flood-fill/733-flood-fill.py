@@ -4,19 +4,15 @@ class Solution:
         if image[sr][sc]==color: return image
         ogcolor = image[sr][sc]
         visited = set()
-        # marked = [[False for j in range(cols)] for i in range(rows)]
         
         def bfs(r,c):
             q = collections.deque()
-            # visited.add((r,c))
             q.append((r,c))
             while q:
                 r,c = q.popleft()
                 if (r,c) not in visited:
-                # if not marked[r][c]:
                     visited.add((r,c))
                     image[r][c] = color
-                    # marked[r][c] = True
                     for dr,dc in [[1,0],[-1,0],[0,1],[0,-1]]:
                         nr,nc = r+dr, c+dc
                         if nr in range(rows) and nc in range(cols) and (nr,nc) not in visited and image[nr][nc]==ogcolor:
