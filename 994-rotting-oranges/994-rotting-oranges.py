@@ -19,8 +19,6 @@ class Solution:
                 
                 for dr, dc in directions:
                     r, c = row + dr, col + dc
-                    # if in bounds and nonrotten, make rotten
-                    # and add to q
                     if r in range(rows) and c in range(cols) and grid[r][c]==1:
                         grid[r][c] = 2
                         q.append((r, c))
