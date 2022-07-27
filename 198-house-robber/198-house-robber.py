@@ -1,12 +1,12 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        
-        p1, p2 = 0,0
+        #[rob1,rob2,n,n+1...]
+        rob1, rob2 = 0,0
         for n in nums:
-            t = p1
-            p1 = max(p2+n, p1)
-            p2 = t
-        return p1
+            t = max(n+rob1, rob2)
+            rob1 = rob2
+            rob2 = t
+        return rob2
     
         # memo = [0]*(len(nums)+1)
         # memo[1] = nums[0]
