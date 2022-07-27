@@ -4,9 +4,10 @@ class Solution:
         if n==1: return 1
         one, two = 0, 1
         for _ in range(n-1):
-            # r = one+two
-            one, two = two, one + two
-            # two = r
-        return two
+            r = one+two
+            one = two
+            two = r
+            # or just use : one, two = two, one + two and return two
+        return r
         
         
