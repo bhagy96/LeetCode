@@ -3,11 +3,9 @@ class Solution:
         
         # for i in range(len(gas)):
         i = 0
-        while i<len(gas):    
-            # print(i)
+        while i<len(gas):
             j, cnt, cumcost, flag = i, 0, 0, 0
             while cnt<len(gas):
-                
                 cumcost += gas[j]-cost[j]
                 if cumcost<0:
                     flag = 1
