@@ -4,8 +4,8 @@ class Solution:
         for i in range(len(digits)-1, -1,-1):
             s += digits[i] 
             if s>=10:
-                digits[i] = s%10
-                s = s//10
+                digits[i] = 0
+                s = 1
                 if i==0:
                     f = 1
             else:
