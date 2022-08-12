@@ -1,8 +1,15 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
+        
         res = 0
-        s = format(n, 'b').zfill(32)
-        for c in s:
-            if c=='1': res+=1
+        while n:
+            res += n%2
+            n = n >> 1 # right shift n by 1
         return res
-        # print(s)
+        
+        # # naive
+        # res = 0
+        # s = format(n, 'b').zfill(32)
+        # for c in s:
+        #     if c=='1': res+=1
+        # return res
