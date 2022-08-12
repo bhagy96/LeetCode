@@ -1,10 +1,13 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
-        res = 0
-        while n:
-            n = n&(n-1)
-            res += 1
-        return res
+        
+        return sum((int(x) for x in bin(n)[2:]))
+    
+        # res = 0
+        # while n:
+        #     n = n&(n-1)
+        #     res += 1
+        # return res
     
     
         # # O(1)
