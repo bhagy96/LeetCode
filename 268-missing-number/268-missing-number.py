@@ -5,3 +5,6 @@ class Solution:
             res = res + i - nums[i]
         return res
         
+        # or use sum of elements upto n formula i.e n*n+1 / 2
+        # and sustract every elemrnt from it
+        
