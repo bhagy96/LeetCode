@@ -1,19 +1,16 @@
 class Solution {
 public:
     vector<int> missingRolls(vector<int>& rolls, int mean, int n) {
-        long long sum=accumulate(begin(rolls),end(rolls),0);
-        long long temp=(n+rolls.size())*1ll*mean;
-        temp-=sum;
-        int a=(temp+(n-1))/n;
-        if(a>6||temp<n)return {};
-        sum=temp/n;
-        vector<int> ans(n,sum);
-        temp%=n;
-        while(temp)
-        {
-            ans[temp]++;
-            temp--;
+        int sum_m = 0;
+        for (int r : rolls) {
+            sum_m += r;
         }
-        return ans;
+        int sum_n = (rolls.size() + n) * mean - sum_m;
+        if (sum_n < n || sum_n > n * 6) return {};
+        vector<int> res(n, sum_n / n);
+        for (int i = 0; i < sum_n % n; ++i) {
+            res[i]++;
+        }
+        return res;
     }
 };
